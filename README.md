@@ -22,5 +22,12 @@
 
 5. Styled-components - у меня был опыт переноса styled-components в отдельные файлы по аналогии с css-modules, но написание их в том же файле мне кажется более удобным, пусть это и делает компонент более объемным.
 
+Инструкция по установке:
 
+```
+git clone https://github.com/Dirk19991/megamir-test.git
+cd .\megamir-test\
+npm install
+npm run dev
+```
  
