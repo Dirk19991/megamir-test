@@ -31,6 +31,18 @@ const SeparationLine = styled.div`
   height: 2px;
   background-color: var(--lightgrey);
   margin-bottom: 46px;
+
+  @media (max-width: 1360px) {
+    width: 968px;
+  }
+
+  @media (max-width: 1065px) {
+    width: 600px;
+  }
+
+  @media (max-width: 780px) {
+    width: 280px;
+  }
 `;
 
 function Category({ category }: CategoryProps) {

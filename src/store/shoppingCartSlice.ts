@@ -30,10 +30,8 @@ const shoppingCartSlice = createSlice({
       }
     },
     removeFromCart(state, action: PayloadAction<SortedGood>) {
-      const { title, price } = action.payload;
-      console.log(state.items[title].quantity);
+      const { title } = action.payload;
       state.items[title].quantity -= 1;
-      console.log(state.items[title].quantity);
     },
   },
 });

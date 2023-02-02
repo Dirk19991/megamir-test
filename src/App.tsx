@@ -8,6 +8,7 @@ import { useAppDispatch } from './store/store';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 30px;
 `;
 

@@ -1,5 +1,5 @@
-import { SortedGoods } from './../utils/goodsSorter';
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { ShoppingItem, SortedGoods } from './../utils/goodsSorter';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { goodsSorter } from '../utils/goodsSorter';
 
 interface AllGoods {
@@ -27,20 +27,26 @@ const allGoodsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchGoods.pending, (state, action) => {
+    builder.addCase(fetchGoods.pending, (state) => {
       state.status = 'loading';
     });
 
-    builder.addCase(fetchGoods.fulfilled, (state, action) => {
-      state.status = 'fulfilled';
-      const goods = action.payload;
-      state.goods = goodsSorter(goods);
-    });
+    builder.addCase(
+      fetchGoods.fulfilled,
+      (state, action: PayloadAction<ShoppingItem[]>) => {
+        state.status = 'fulfilled';
+        const goods = action.payload;
+        state.goods = goodsSorter(goods);
+      }
+    );
 
-    builder.addCase(fetchGoods.rejected, (state, action) => {
-      state.status = 'rejected';
-      console.log(action.payload);
-    });
+    builder.addCase(
+      fetchGoods.rejected,
+      (state, action: PayloadAction<any>) => {
+        state.status = 'rejected';
+        console.log(action.payload);
+      }
+    );
   },
 });
 
